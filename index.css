@@ -1,0 +1,79 @@
+
+*{
+    box-sizing: border-box;
+}
+  
+.homePageBackground{
+    background: url('http://clipart-library.com/images/kiKopajeT.jpg') fixed;
+  
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.searchPageBackground{
+    background-color: rgb(186, 186, 247); /* rgb(111, 196, 252);*/
+}
+
+
+.searchPage{
+    font-size: 30px;
+}
+
+
+.searchPage-header-desc{
+    font-size: 30px;
+}
+
+#search-item{
+    font-size: 25px;
+}
+
+.js-search-results{
+    font-size: 20px;
+}
+
+.result{
+    margin-bottom: 70px;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(234, 234, 118);
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.homePage{
+    display: block;
+    text-align: center;        
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 25px;
+    color: white;
+    height: 100vh;
+}
+
+button{
+    font-size: 25px;
+    width: 200px;
+    height: 60px; 
+    margin: 20px;
+    background-color: yellow;
+    color: black;
+    font-style: italic;
+    /*border-color: transparent;*/
+    font-size: 35px;
+}
+
+button:hover {
+    background-color: blue;
+    border-color: transparent;
+    color: white;
+	cursor: pointer;
+}
+
+label:hover, label:focus {
+    color: blue;
+}
