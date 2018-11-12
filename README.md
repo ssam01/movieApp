@@ -1,0 +1,1 @@
+This app will recommend movies based on the topic or movie name entered by the user.
