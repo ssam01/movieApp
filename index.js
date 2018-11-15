@@ -1,24 +1,24 @@
-const TASTEDIVE_API_URL = 'https://tastedive.com/ask/ws';  
-const accessKey = '323116-MoviesFo-TY8MX7RI';
+const TASTEDIVE_API_URL = "https://tastedive.com/ask/ws";  
+const accessKey = "323116-MoviesFo-TY8MX7RI";
 
 function getDataFromAPI(theQuery, callbackFunc)
 {    
     $.ajax({
         url: `${TASTEDIVE_API_URL}`,
         type: "get",
-        dataType: 'jsonp',        
+        dataType: "jsonp",        
         data: {
             q: `${theQuery}`,
             format: "json",
-            type: 'movies',
+            type: "movies",
             info: 1,
-            limit: 20,
+            limit: 10,
             k: `${accessKey}`,             
         }    
     })        
         .done(callbackFunc)  
         .fail(function() {
-            alert('Error occurred on server.  Please try again.');
+            alert("Error occurred on server.  Please try again.");
     }); 
 }
 
