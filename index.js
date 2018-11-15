@@ -1,4 +1,4 @@
-const TASTEDIVE_API_URL = 'https://tastedive.com/ask/ws?callback=?';
+const TASTEDIVE_API_URL = 'https://tastedive.com/ask/ws';  
 const accessKey = '323116-MoviesFo-TY8MX7RI';
 
 function getDataFromAPI(theQuery, callbackFunc)
@@ -6,20 +6,17 @@ function getDataFromAPI(theQuery, callbackFunc)
     $.ajax({
         url: `${TASTEDIVE_API_URL}`,
         type: "get",
-        dataType: 'jsonp',
-        //jsonp: "callback",
-        //jsonpCallback: `${callbackFunc}`,
+        dataType: 'jsonp',        
         data: {
             q: `${theQuery}`,
             format: "json",
             type: 'movies',
             info: 1,
             limit: 20,
-            k: `${accessKey}`,
-            callback:  `${callbackFunc}` 
+            k: `${accessKey}`,             
         }    
     })        
-        .done(function(data){displayDataFromAPI(data);})  //(displayDataFromAPI(data))  //(`${callbackFunc}`)
+        .done(callbackFunc)  
         .fail(function() {
             alert('Error occurred on server.  Please try again.');
     }); 
@@ -28,23 +25,33 @@ function getDataFromAPI(theQuery, callbackFunc)
 
 
 function renderResult(result) {   
-    return `
+    return `      
       <div class="result">
         <p class="bold"> ${result.Name} </p>
-        <p> ${result.wTeaser}</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/${result.yID}?feature=oembed\" frameborder="0" allowfullscreen></iframe> 
+        <p class="description"> ${result.wTeaser}</p>
+        <iframe width=100% height=200 src="https://www.youtube.com/embed/${result.yID}?feature=oembed\" frameborder="0" allowfullscreen></iframe> 
         <p>\n</p>
-      </div>
+      </div>      
     `;    
 }
 
 
 
 function displayDataFromAPI(data)
-{        
-    const results = data.Similar.Results.map((item, index) => renderResult(item));
+{   
+    if(data.Similar.Results.length === 0)
+    {
+        $('.js-search-results').html(`        
+          <p class="bold"> Movies for this search not found. </p>       
+        `);
+    }
+    else
+    {
+        const results = data.Similar.Results.map((item, index) => renderResult(item));
     
-    $('.js-search-results').html(results);    
+        $('.js-search-results').html(results); 
+    } 
+     
 }
 
 
@@ -64,6 +71,9 @@ function handleGetMoviesButtonClick()
         event.preventDefault();
         
         let searchQuery = GetSearchQuery(event);
+
+        //clear the search query textbox
+        $(event.currentTarget).find('.js-query').val('');
 
         //get the data from the TasteDive API
         getDataFromAPI(searchQuery, displayDataFromAPI);        

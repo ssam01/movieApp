@@ -11,17 +11,24 @@
 }
 
 .searchPageBackground{
-    background-color: rgb(186, 186, 247); /* rgb(111, 196, 252);*/
+    background-color: rgb(186, 186, 247); 
 }
 
 
 .searchPage{
     font-size: 30px;
+    margin: 20px;
+}
+
+.searchPage h1{
+    margin-bottom: 20px;
 }
 
 
 .searchPage-header-desc{
     font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #search-item{
@@ -30,17 +37,28 @@
 
 .js-search-results{
     font-size: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;   
 }
 
-.result{
-    margin-bottom: 70px;
+
+.result{   
     padding: 20px;
-    margin: 20px;
+    margin: 20px;  
+    margin-bottom: 5px; 
+    border: 5px;
     background-color: rgb(234, 234, 118);
+    flex: 1  1 30%;    
 }
+
 
 .bold{
     font-weight: bold;
+}
+
+.result .bold{
+    font-family: 'Slabo 27px', serif;
 }
 
 .homePage{
@@ -63,9 +81,13 @@ button{
     background-color: yellow;
     color: black;
     font-style: italic;
-    /*border-color: transparent;*/
-    font-size: 35px;
+        
 }
+
+.description{
+    font-family: 'Open Sans', sans-serif;
+}
+
 
 button:hover {
     background-color: blue;
@@ -74,6 +96,29 @@ button:hover {
 	cursor: pointer;
 }
 
-label:hover, label:focus {
-    color: blue;
-}
+  
+@media only screen and (min-width: 320px) {
+
+    .result
+    {  
+        width: 100%;
+    }
+  }
+
+
+  @media only screen and (min-width: 768px) {
+
+    .result
+    {  
+        width: 49.999%;        
+    }
+  }
+
+
+  @media only screen and (min-width: 1280px) {
+
+    .result
+    {  
+        width: 33.3333%;        
+    }
+  }
