@@ -4,20 +4,22 @@
 }
   
 .homePageBackground{
-    background: url('http://clipart-library.com/images/kiKopajeT.jpg') fixed;
-  
+    background: url('http://clipart-library.com/images/kiKopajeT.jpg') fixed;    
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 .searchPageBackground{
-    background-color: rgb(186, 186, 247); 
+    background-color: rgb(10, 52, 131);  
+    
 }
 
 
 .searchPage{
     font-size: 30px;
     margin: 20px;
+    color: white; 
 }
 
 .searchPage h1{
@@ -26,7 +28,7 @@
 
 
 .searchPage-header-desc{
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -40,6 +42,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;   
+    color: black;
 }
 
 

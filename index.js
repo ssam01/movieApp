@@ -28,8 +28,8 @@ function renderResult(result) {
     return `      
       <div class="result">
         <p class="bold"> ${result.Name} </p>
-        <p class="description"> ${result.wTeaser}</p>
         <iframe width=100% height=200 src="https://www.youtube.com/embed/${result.yID}?feature=oembed\" frameborder="0" allowfullscreen></iframe> 
+        <p class="description"> ${result.wTeaser}</p>        
         <p>\n</p>
       </div>      
     `;    
